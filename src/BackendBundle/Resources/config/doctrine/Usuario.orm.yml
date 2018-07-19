@@ -1,0 +1,80 @@
+BackendBundle\Entity\Usuario:
+    type: entity
+    table: usuario
+    indexes:
+        IDX_2265B05D319C91FD:
+            columns:
+                - tipo_usuario
+    uniqueConstraints:
+        uq_usuario_cedula:
+            columns:
+                - cedula
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        nombre:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        apellido:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        cedula:
+            type: string
+            nullable: false
+            length: 10
+            options:
+                fixed: true
+        email:
+            type: string
+            nullable: false
+            length: 150
+            options:
+                fixed: false
+        sexo:
+            type: string
+            nullable: false
+            length: 1
+            options:
+                fixed: true
+        fechaAlta:
+            type: datetime
+            nullable: false
+            column: fecha_alta
+        fechaIng:
+            type: date
+            nullable: false
+            column: fecha_ing
+        status:
+            type: boolean
+            nullable: false
+        clave:
+            type: string
+            nullable: false
+            length: 64
+            options:
+                fixed: false
+    manyToOne:
+        tipoUsuario:
+            targetEntity: Rol
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                tipo_usuario:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

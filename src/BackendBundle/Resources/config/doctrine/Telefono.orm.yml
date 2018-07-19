@@ -1,0 +1,35 @@
+BackendBundle\Entity\Telefono:
+    type: entity
+    table: telefono
+    indexes:
+        IDX_C1E70A7FFCF8192D:
+            columns:
+                - id_usuario
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        telefono:
+            type: string
+            nullable: false
+            length: 11
+            options:
+                fixed: true
+    manyToOne:
+        idUsuario:
+            targetEntity: Usuario
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_usuario:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

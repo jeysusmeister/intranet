@@ -1,0 +1,21 @@
+BackendBundle\Entity\Rol:
+    type: entity
+    table: rol
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: SEQUENCE
+    fields:
+        tipoUsuario:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            column: tipo_usuario
+    lifecycleCallbacks: {  }
